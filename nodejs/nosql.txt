@@ -1,0 +1,61 @@
+connection {
+	_id: ObjectId,
+	session_id: ObjectId,
+	user_id: ObjectId,
+	url_id: ObjectId,
+	date_time: {
+		start: DateTime,
+		end: DateTime,
+		last: DateTime
+	}
+}
+
+url {
+	_id: ObjectId;
+	hostname: String,
+	port: Int32,
+	path: String,
+	hash: String,
+	page_viewd: Int32,
+	page_shared: Int32
+}
+
+user {
+	_id: ObjectId,
+	info: {
+		nickname: String,
+		email: String,
+		sex: String,
+	}
+	friends: [user_id: ObjectId];
+}
+
+message {
+	_id: ObjectId,
+	date_time: DateTime,
+	user_id: ObjectId,
+	user_name: String,
+	content: String
+}
+
+session {
+	_id: String,
+	session: {
+		user_id: ObjectId
+	}
+	expires: DateTime
+}
+
+share {
+	_id: ObjectId,
+	date_time: DateTime,
+	method: ObjectId,
+	user_id: ObjectId,
+	url_id: ObjectId
+}
+
+share_method {
+	_id: Object,
+	type: String,
+	name: String
+}
